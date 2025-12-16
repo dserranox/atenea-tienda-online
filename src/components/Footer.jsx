@@ -25,7 +25,7 @@ const Footer = () => {
                 <Phone size={16} />
                 <span>+54 9 3564 51-7250</span>
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-600 hover:text-[#FF6B6B] transition-colors text-sm">
+              <a href="https://instagram.com/atenea_bikiinis/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-600 hover:text-[#FF6B6B] transition-colors text-sm">
                 <Instagram size={16} />
                 <span>@atenea_bikiinis</span>
               </a>

@@ -18,7 +18,7 @@ const ProductCarousel = () => {
       const { data, error } = await supabase
         .from('products')
         .select('*')
-        .eq('destacado', true) 
+        .eq('destacado_carrusel', true) 
         .limit(6);
 
       if (error) throw error;
@@ -57,7 +57,7 @@ const ProductCarousel = () => {
           transition={{ duration: 0.5 }}
           className="absolute inset-0"
         >
-          <Link to={`/producto/${products[currentIndex].id}`}>
+          <Link to={`/categoria/${products[currentIndex].category}/${products[currentIndex].subcategory}`}>
             <img
               src={products[currentIndex].image_url}
               alt={products[currentIndex].name}
@@ -73,9 +73,7 @@ const ProductCarousel = () => {
                   <h2 className="text-3xl md:text-5xl font-bold text-white mb-2">
                     {products[currentIndex].name}
                   </h2>
-                  <p className="text-xl md:text-2xl text-white font-semibold">
-                    ${products[currentIndex].price.toLocaleString('es-AR')}
-                  </p>
+
                 </motion.div>
               </div>
             </div>

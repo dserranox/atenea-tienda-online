@@ -11,24 +11,36 @@ const Header = () => {
       label: 'Bikinis',
       link: '/categoria/Colección 2026/Bikinis'
     }, {
-      label: 'Mallas enteras',
-      link: '/categoria/Colección 2026/Mallas enteras'
+      label: 'Enteras',
+      link: '/categoria/Colección 2026/Enteras'
+    }, {
+      label: 'Partes de arriba',
+      link: '/categoria/Colección 2026/Partes de arriba'
+    }, {
+      label: 'Partes de abajo',
+      link: '/categoria/Colección 2026/Partes de abajo'
     }]
   }, {
-    label: 'Nuevos ingresos',
-    link: '/categoria/Nuevos ingresos'
+    label: 'Complementos',
+    submenu: [{
+      label: 'Pañuelos',
+      link: '/categoria/Complementos/Panuelos'
+    }, {
+      label: 'Lonas',
+      link: '/categoria/Complementos/Lonas'
+    }, {
+      label: 'Toallas',
+      link: '/categoria/Complementos/Toallas'
+    }, {
+      label: 'Neceser',
+      link: '/categoria/Complementos/Neceser'
+    }]
   }, {
-    label: 'Accesorios',
-    link: '/categoria/Accesorios'
-  }, {
-    label: 'Sandalias',
-    link: '/categoria/Sandalias'
-  }, {
-    label: 'Toallones',
-    link: '/categoria/Toallones'
-  }, {
-    label: 'Salidas de baño',
-    link: '/categoria/Salidas de baño'
+    label: 'Calzado',
+    submenu: [{
+      label: 'Ojotas',
+      link: '/categoria/Calzado/Ojotas'
+    }]
   }];
   return <header className="sticky top-0 z-50 bg-white shadow-sm">
       {/* Promotional Banner */}

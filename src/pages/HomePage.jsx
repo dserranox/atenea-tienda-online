@@ -19,6 +19,7 @@ const HomePage = () => {
       const { data, error } = await supabase
         .from('products')
         .select('*')
+        .eq('destacado', true) 
         .limit(8);
 
       if (error) throw error;
@@ -59,7 +60,7 @@ const HomePage = () => {
               className="group relative overflow-hidden rounded-lg aspect-[4/5] bg-gray-100"
             >
               <img
-                src="https://images.unsplash.com/photo-1582588678413-dbf45f4823e9?w=800"
+                src="https://iwguxyfertnxkvnqwzrz.supabase.co/storage/v1/object/public/Atenea-photos/destacados/conjunto.jpeg?w=800"
                 alt="Colección 2026"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
@@ -72,35 +73,35 @@ const HomePage = () => {
             </Link>
 
             <Link
-              to="/categoria/Accesorios"
+              to="/categoria/Complementos"
               className="group relative overflow-hidden rounded-lg aspect-[4/5] bg-gray-100"
             >
               <img
-                src="https://images.unsplash.com/photo-1590874103328-eac38a683ce7?w=800"
-                alt="Accesorios"
+                src="https://iwguxyfertnxkvnqwzrz.supabase.co/storage/v1/object/public/Atenea-photos/destacados/toallas.jpeg?w=800"
+                alt="Complementos"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                 <div className="p-6">
-                  <h3 className="text-white text-2xl font-bold">Accesorios</h3>
+                  <h3 className="text-white text-2xl font-bold">Complementos</h3>
                   <p className="text-white/90 mt-2">Complementa tu look</p>
                 </div>
               </div>
             </Link>
 
             <Link
-              to="/categoria/Salidas de baño"
+              to="/categoria/Calzado"
               className="group relative overflow-hidden rounded-lg aspect-[4/5] bg-gray-100"
             >
               <img
-                src="https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=800"
-                alt="Salidas de baño"
+                src="https://iwguxyfertnxkvnqwzrz.supabase.co/storage/v1/object/public/Atenea-photos/destacados/ojotasprint.jpeg?w=800"
+                alt="Calzado"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                 <div className="p-6">
-                  <h3 className="text-white text-2xl font-bold">Salidas de baño</h3>
-                  <p className="text-white/90 mt-2">Elegancia y confort</p>
+                  <h3 className="text-white text-2xl font-bold">Calzado</h3>
+                  <p className="text-white/90 mt-2">El complemento para tus pies</p>
                 </div>
               </div>
             </Link>

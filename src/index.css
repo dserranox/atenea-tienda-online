@@ -7,8 +7,7 @@
 @tailwind utilities;
 
 body {
-  /* Changed body background to a light neutral for better contrast with components */
-  @apply bg-gray-50 text-gray-800;
-  /* Adjusted for better overall contrast */
-  font-family: 'DM Sans', sans-serif;
+    /* Changed body background to a light neutral for better contrast with components */
+    @apply bg-gray-50 text-gray-800; /* Adjusted for better overall contrast */
+    font-family: 'DM Sans', sans-serif;
 }

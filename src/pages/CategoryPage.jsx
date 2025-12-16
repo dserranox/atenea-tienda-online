@@ -27,7 +27,7 @@ const CategoryPage = () => {
   const fetchProducts = async () => {
     setLoading(true);
     try {
-      let query = supabase.from('products').select('*');
+      let query = supabase.from('products').select('*').gt('price', 0);
 
       if (subcategory) {
         query = query.eq('subcategory', subcategory);
