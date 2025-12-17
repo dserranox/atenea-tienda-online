@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo & Info */}
           <div>
-            <img src="https://horizons-cdn.hostinger.com/cd1d2537-0bee-42c3-8d99-878b92e29966/chatgpt-image-6-dic-2025-19_19_49-1bAeN.png" alt="Logo de Atenea Bikinis" className="w-[130px] h-[67px] mx-auto object-contain" />
+            <img src="https://horizons-cdn.hostinger.com/cd1d2537-0bee-42c3-8d99-878b92e29966/atenea-logo-lDEUW.svg" alt="Logo de Atenea Bikinis" className="w-[130px] h-[67px] mx-auto object-contain" />
             <p className="text-gray-600 mt-4 text-sm">
               Trajes de baño de alta calidad para mujeres que aman el verano.
             </p>

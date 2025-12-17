@@ -58,7 +58,7 @@ const Header = () => {
 
           {/* Logo */}
           <Link to="/" className="flex-1 lg:flex-initial text-center">
-            <img src="https://horizons-cdn.hostinger.com/cd1d2537-0bee-42c3-8d99-878b92e29966/chatgpt-image-6-dic-2025-19_23_25-kLhMZ.png" alt="Logo de Atenea Bikinis" className="w-[130px] h-[67px] mx-auto object-contain" />
+            <img src="https://horizons-cdn.hostinger.com/cd1d2537-0bee-42c3-8d99-878b92e29966/atenea-logo-tny6o.svg" alt="Logo de Atenea Bikinis" className="w-[130px] h-[67px] mx-auto object-contain" />
           </Link>
 
           {/* Desktop Navigation */}
