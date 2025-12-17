@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
-import { motion } from 'framer-motion';
-import { Filter } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Filter, ChevronDown } from 'lucide-react';
 import ProductCard from '@/components/ProductCard';
 import { supabase } from '@/lib/customSupabaseClient';
 import { Button } from '@/components/ui/button';
@@ -16,9 +16,32 @@ const CategoryPage = () => {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [selectedColors, setSelectedColors] = useState([]);
   const [selectedSizes, setSelectedSizes] = useState([]);
+  const [colorAccordionOpen, setColorAccordionOpen] = useState(false);
+  const [sizeAccordionOpen, setSizeAccordionOpen] = useState(false);
 
-  const colors = ['Coral', 'Blanco', 'Arena', 'Aqua'];
-  const sizes = ['XS', 'S', 'M', 'L', 'XL', 'Única'];
+  // Extraer colores y talles únicos de los productos
+  const colors = useMemo(() => {
+    const uniqueColors = new Set();
+    products.forEach(product => {
+      if (product.color) {
+        uniqueColors.add(product.color.trim());
+      }
+    });
+    return Array.from(uniqueColors).sort();
+  }, [products]);
+
+  const sizes = useMemo(() => {
+    const uniqueSizes = new Set();
+    products.forEach(product => {
+      if (product.size) {
+        // Dividir por coma y agregar cada talle individual
+        product.size.split(',').forEach(size => {
+          uniqueSizes.add(size.trim());
+        });
+      }
+    });
+    return Array.from(uniqueSizes).sort();
+  }, [products]);
 
   useEffect(() => {
     fetchProducts();
@@ -67,49 +90,106 @@ const CategoryPage = () => {
   });
 
   const FilterSection = () => (
-    <div className="space-y-6">
-      <div>
-        <h3 className="font-semibold text-gray-800 mb-3">Color</h3>
-        <div className="space-y-2">
-          {colors.map((color) => (
-            <div key={color} className="flex items-center space-x-2">
-              <Checkbox
-                id={`color-${color}`}
-                checked={selectedColors.includes(color)}
-                onCheckedChange={() => toggleColor(color)}
-              />
-              <Label
-                htmlFor={`color-${color}`}
-                className="text-sm text-gray-700 font-normal cursor-pointer"
+    <div className="space-y-4">
+      {/* Filtro de Color */}
+      {colors.length > 0 && (
+        <div className="border rounded-lg">
+          <button
+            onClick={() => setColorAccordionOpen(!colorAccordionOpen)}
+            className="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors"
+          >
+            <h3 className="font-semibold text-gray-800">
+              Color {selectedColors.length > 0 && `(${selectedColors.length})`}
+            </h3>
+            <ChevronDown
+              size={20}
+              className={`transform transition-transform ${
+                colorAccordionOpen ? 'rotate-180' : ''
+              }`}
+            />
+          </button>
+          <AnimatePresence>
+            {colorAccordionOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="overflow-hidden"
               >
-                {color}
-              </Label>
-            </div>
-          ))}
+                <div className="px-4 pb-4 space-y-2">
+                  {colors.map((color) => (
+                    <div key={color} className="flex items-center space-x-2">
+                      <Checkbox
+                        id={`color-${color}`}
+                        checked={selectedColors.includes(color)}
+                        onCheckedChange={() => toggleColor(color)}
+                      />
+                      <Label
+                        htmlFor={`color-${color}`}
+                        className="text-sm text-gray-700 font-normal cursor-pointer"
+                      >
+                        {color}
+                      </Label>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </div>
+      )}
 
-      <div>
-        <h3 className="font-semibold text-gray-800 mb-3">Talle</h3>
-        <div className="space-y-2">
-          {sizes.map((size) => (
-            <div key={size} className="flex items-center space-x-2">
-              <Checkbox
-                id={`size-${size}`}
-                checked={selectedSizes.includes(size)}
-                onCheckedChange={() => toggleSize(size)}
-              />
-              <Label
-                htmlFor={`size-${size}`}
-                className="text-sm text-gray-700 font-normal cursor-pointer"
+      {/* Filtro de Talle */}
+      {sizes.length > 0 && (
+        <div className="border rounded-lg">
+          <button
+            onClick={() => setSizeAccordionOpen(!sizeAccordionOpen)}
+            className="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors"
+          >
+            <h3 className="font-semibold text-gray-800">
+              Talle {selectedSizes.length > 0 && `(${selectedSizes.length})`}
+            </h3>
+            <ChevronDown
+              size={20}
+              className={`transform transition-transform ${
+                sizeAccordionOpen ? 'rotate-180' : ''
+              }`}
+            />
+          </button>
+          <AnimatePresence>
+            {sizeAccordionOpen && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="overflow-hidden"
               >
-                {size}
-              </Label>
-            </div>
-          ))}
+                <div className="px-4 pb-4 space-y-2">
+                  {sizes.map((size) => (
+                    <div key={size} className="flex items-center space-x-2">
+                      <Checkbox
+                        id={`size-${size}`}
+                        checked={selectedSizes.includes(size)}
+                        onCheckedChange={() => toggleSize(size)}
+                      />
+                      <Label
+                        htmlFor={`size-${size}`}
+                        className="text-sm text-gray-700 font-normal cursor-pointer"
+                      >
+                        {size}
+                      </Label>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </div>
+      )}
 
+      {/* Botón para limpiar filtros */}
       {(selectedColors.length > 0 || selectedSizes.length > 0) && (
         <Button
           variant="outline"

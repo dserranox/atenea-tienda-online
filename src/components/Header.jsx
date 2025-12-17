@@ -45,7 +45,7 @@ const Header = () => {
   return <header className="sticky top-0 z-50 bg-white shadow-sm">
       {/* Promotional Banner */}
       <div className="bg-[#F5E6D3] text-gray-800 py-2 px-4 text-center text-sm font-medium">
-        ENVÍOS GRATIS A PARTIR DE $100.000
+        ENVÍOS GRATIS A PARTIR DE $120.000
       </div>
 
       {/* Main Header */}
