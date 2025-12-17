@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" width="400" height="160" class="drop-shadow-sm"><defs><style>
+            .text-atenea { font-family: 'Cinzel', serif; font-weight: 600; letter-spacing: 0.05em; }
+            .text-bikinis { font-family: 'Montserrat', sans-serif; font-weight: 300; letter-spacing: 0.4em; text-transform: uppercase; }
+          </style></defs><path d="M150 25 C 160 25, 175 40, 180 50 C 170 45, 160 42, 150 42 C 140 42, 130 45, 120 50 C 125 40, 140 25, 150 25 Z" fill="#E87C6C" opacity="0.8"/><path d="M120 50 Q 150 65 180 50" stroke="#E87C6C" stroke-width="1.5" fill="none"/><text x="150" y="80" text-anchor="middle" class="text-atenea" fill="#E87C6C" font-size="42">ATENEA</text><text x="150" y="100" text-anchor="middle" class="text-bikinis" fill="#D65A48" font-size="10">bikinis</text></svg>

@@ -72,10 +72,12 @@ const Header = () => {
                   </button>}
 
                 {/* Desktop Submenu */}
-                {item.submenu && activeSubmenu === index && <div className="absolute top-full left-0 mt-2 bg-white shadow-lg rounded-lg py-2 min-w-[200px]">
-                    {item.submenu.map((subitem, subindex) => <Link key={subindex} to={subitem.link} className="block px-4 py-2 text-gray-700 hover:bg-[#F5E6D3] hover:text-[#FF6B6B] transition-colors">
-                        {subitem.label}
-                      </Link>)}
+                {item.submenu && activeSubmenu === index && <div className="absolute top-full left-0 pt-2">
+                    <div className="bg-white shadow-lg rounded-lg py-2 min-w-[200px]">
+                      {item.submenu.map((subitem, subindex) => <Link key={subindex} to={subitem.link} className="block px-4 py-2 text-gray-700 hover:bg-[#F5E6D3] hover:text-[#FF6B6B] transition-colors">
+                          {subitem.label}
+                        </Link>)}
+                    </div>
                   </div>}
               </div>)}
           </nav>
